@@ -8,9 +8,23 @@ class Counter extends React.Component {
 
         // State is always an obj and is *MY* stuff
         this.state = { 
-            currentValue: props.initialValuee,
+            currentValue: props.initialValue,
 
         };
+        setInterval(this._increaseValue, 1000);
+    }
+
+    // Always write helper functions as arrow funcs
+    _increaseValue = () => {
+        // calculate the new current value
+        let newCurrentValue = this.state.currentValue +1;
+        // then, set new current value in state
+        // but must call this.setState
+        // I cannot alter this.state directly
+
+        this.setState({
+            currentValue: newCurrentValue
+        });
     }
 
     // Rule 2 must have render method
